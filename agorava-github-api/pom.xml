@@ -30,6 +30,7 @@
         <dependency>
             <groupId>org.scribe</groupId>
             <artifactId>scribe</artifactId>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
