@@ -15,23 +15,28 @@
  */
 package org.agorava.github;
 
-import java.lang.annotation.Annotation;
-import org.agorava.core.cdi.AbstractSocialNetworkService;
+import org.agorava.core.api.oauth.OAuthService;
+import org.agorava.core.cdi.AbstractSocialMediaApi;
+
+import javax.inject.Inject;
 
 /**
  * @author Justin Wyer
- * 
  */
-public class GithubBaseService extends AbstractSocialNetworkService {
+public class GithubBaseService extends AbstractSocialMediaApi {
 
-    @Override
-    public Annotation getQualifier() {
-        return GithubLiteral.INSTANCE;
-    }
 
-    @Override
+    @Inject
+    @Github
+    private OAuthService service;
+
+
     public String getApiRootUrl() {
         return "https://api.github.com/";
     }
 
+    @Override
+    public OAuthService getService() {
+        return service;
+    }
 }
