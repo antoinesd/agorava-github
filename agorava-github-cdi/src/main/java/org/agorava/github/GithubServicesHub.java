@@ -15,22 +15,22 @@
  */
 package org.agorava.github;
 
-import java.lang.annotation.Annotation;
-import javax.enterprise.event.Observes;
-import javax.enterprise.inject.Instance;
-import javax.inject.Inject;
 import org.agorava.core.api.event.OAuthComplete;
 import org.agorava.core.api.event.SocialEvent.Status;
+import org.agorava.core.api.oauth.OAuthService;
 import org.agorava.core.cdi.AbstractSocialMediaApiHub;
 import org.agorava.github.cdi.UserServiceImpl;
 import org.jboss.solder.logging.Logger;
 
+import javax.enterprise.event.Observes;
+import javax.enterprise.inject.Instance;
+import javax.inject.Inject;
+
 /**
  * @author Justin Wyer
- * 
  */
 public class GithubServicesHub extends AbstractSocialMediaApiHub {
-    
+
     private static final String MEDIA_NAME = "Github";
 
     @Inject
@@ -39,9 +39,9 @@ public class GithubServicesHub extends AbstractSocialMediaApiHub {
     @Inject
     Logger log;
 
-    @Override
-    public Annotation getQualifier() {
-        return GithubLiteral.INSTANCE;
+    @Inject
+    public GithubServicesHub(@Github OAuthService service) {
+        super(service);
     }
 
     public void initMyProfile(@Observes @Github OAuthComplete oauthComplete) {
@@ -59,5 +59,6 @@ public class GithubServicesHub extends AbstractSocialMediaApiHub {
     public String getSocialMediaName() {
         return MEDIA_NAME;
     }
+
 
 }
