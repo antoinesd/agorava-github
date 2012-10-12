@@ -15,27 +15,27 @@
  */
 package org.agorava.github.test;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
 import org.agorava.core.api.SocialMediaApiHub;
 import org.agorava.core.api.oauth.Param;
-import org.agorava.core.oauth.OAuthApplication;
+import org.agorava.core.cdi.OAuthApplication;
 import org.agorava.github.Github;
 import org.agorava.github.GithubServicesHub;
+
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
 
 import static org.agorava.core.api.oauth.OAuthAppSettingsBuilder.*;
 
 /**
  * @author Justin Wyer
- * 
  */
 public class GithubServiceProducer {
 
     @Github
     @ApplicationScoped
-    @OAuthApplication(params = {@Param (name = API_KEY, value = "69ca173c7ff7ed10845e"),
-        @Param(name = API_SECRET, value = "c0a77e9c2a695ef2d67d48eed20bfd4ef336bae8"),
-        @Param(name = CALLBACK, value = "http://home.lifeasageek.com")})
+    @OAuthApplication(params = {@Param(name = API_KEY, value = "69ca173c7ff7ed10845e"),
+            @Param(name = API_SECRET, value = "c0a77e9c2a695ef2d67d48eed20bfd4ef336bae8"),
+            @Param(name = CALLBACK, value = "http://home.lifeasageek.com")})
     @Produces
     public SocialMediaApiHub OAuthSettingsProducer(GithubServicesHub service) {
         return service;
