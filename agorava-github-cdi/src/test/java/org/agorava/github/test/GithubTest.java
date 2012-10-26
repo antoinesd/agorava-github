@@ -15,9 +15,6 @@
  */
 package org.agorava.github.test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import javax.inject.Inject;
 import org.agorava.core.api.SocialMediaApiHub;
 import org.agorava.core.api.oauth.OAuthToken;
 import org.agorava.core.oauth.scribe.OAuthTokenScribe;
@@ -27,7 +24,6 @@ import org.agorava.github.model.GithubProfile;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.GenericArchive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
@@ -36,6 +32,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import javax.inject.Inject;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 @RunWith(Arquillian.class)
 public class GithubTest {
@@ -58,9 +58,9 @@ public class GithubTest {
         System.out.println(System.getProperty("arquillian"));
         if (("weld-ee-embedded-1.1".equals(System.getProperty("arquillian")) || System.getProperty("arquillian") == null)) {
             // Don't embed dependencies that are already in the CL in the embedded container from surefire
-            ret.addAsLibraries(DependencyResolvers.use(MavenDependencyResolver.class).loadMetadataFromPom("pom.xml")
+       /*     ret.addAsLibraries(DependencyResolvers.use(MavenDependencyResolver.class).loadMetadataFromPom("pom.xml")
                     .artifact("org.jboss.solder:solder-impl").resolveAs(GenericArchive.class));
-        } else {
+       */ } else {
             ret.addAsLibraries(DependencyResolvers.use(MavenDependencyResolver.class).loadMetadataFromPom("pom.xml")
                     .artifact("org.jboss.solder:solder-impl").artifact("org.scribe:scribe")
                     .artifact("org.apache.commons:commons-lang3").artifact("org.codehaus.jackson:jackson-mapper-asl")

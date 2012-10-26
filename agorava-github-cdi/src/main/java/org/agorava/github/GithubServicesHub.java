@@ -20,7 +20,7 @@ import org.agorava.core.api.event.SocialEvent.Status;
 import org.agorava.core.api.oauth.OAuthService;
 import org.agorava.core.cdi.AbstractSocialMediaApiHub;
 import org.agorava.github.cdi.UserServiceImpl;
-import org.jboss.solder.logging.Logger;
+import org.jboss.logging.Logger;
 
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Instance;
@@ -40,9 +40,9 @@ public class GithubServicesHub extends AbstractSocialMediaApiHub {
     Logger log;
 
     @Inject
-    public GithubServicesHub(@Github OAuthService service) {
-        super(service);
-    }
+    @Github
+    private OAuthService service;
+
 
     public void initMyProfile(@Observes @Github OAuthComplete oauthComplete) {
         log.debug("Initializing Github profile");
