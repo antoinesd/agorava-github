@@ -1,11 +1,11 @@
 /*
- * Copyright 2012 the original author or authors.
+ * Copyright 2014 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,16 +15,16 @@
  */
 package org.agorava.github.model;
 
-import java.io.Serializable;
-import org.agorava.core.api.UserProfile;
+import org.agorava.spi.UserProfile;
 
 /**
  * Model class containing a Github user's profile information.
- * 
+ *
  * @author Justin Wyer
+ * @author Antoine Sabot-Durand
  */
-@SuppressWarnings("serial")
-public class GithubProfile extends UserProfile implements Serializable {
+
+public class GithubProfile extends UserProfile {
 
     private final String login;
     private final String name;
@@ -39,20 +39,20 @@ public class GithubProfile extends UserProfile implements Serializable {
 
     /**
      * The user's Github login
-     * 
+     *
      * @return the user's Github login
      */
     public String getLogin() {
         return login;
     }
 
-   @Override
-   public String getFullName() {
-       return name;
-   }
+    @Override
+    public String getFullName() {
+        return name;
+    }
 
-   @Override
-   public String getProfileImageUrl() {
-       return avatar_url;
-   }
+    @Override
+    public String getProfileImageUrl() {
+        return avatar_url;
+    }
 }

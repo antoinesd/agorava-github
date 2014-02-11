@@ -1,11 +1,11 @@
 /*
- * Copyright 2012 the original author or authors.
+ * Copyright 2014 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,37 +15,12 @@
  */
 package org.agorava.github.test;
 
-import org.agorava.core.api.SocialMediaApiHub;
-import org.agorava.core.api.oauth.OAuthToken;
-import org.agorava.core.oauth.scribe.OAuthTokenScribe;
-import org.agorava.github.Github;
-import org.agorava.github.UserService;
-import org.agorava.github.model.GithubProfile;
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.Archive;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
-import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import javax.inject.Inject;
-import java.io.File;
-import java.io.FileNotFoundException;
-
-@RunWith(Arquillian.class)
+/**@RunWith(Arquillian.class)
 public class GithubTest {
 
-    @Inject
-    @Github
-    SocialMediaApiHub serviceHub;
 
     @Inject
-    UserService userService;
+@Github$ UserService userService;
 
     @Deployment
     public static Archive<?> createTestArchive() throws FileNotFoundException {
@@ -58,9 +33,9 @@ public class GithubTest {
         System.out.println(System.getProperty("arquillian"));
         if (("weld-ee-embedded-1.1".equals(System.getProperty("arquillian")) || System.getProperty("arquillian") == null)) {
             // Don't embed dependencies that are already in the CL in the embedded container from surefire
-       /*     ret.addAsLibraries(DependencyResolvers.use(MavenDependencyResolver.class).loadMetadataFromPom("pom.xml")
+ *//*     ret.addAsLibraries(DependencyResolvers.use(MavenDependencyResolver.class).loadMetadataFromPom("pom.xml")
                     .artifact("org.jboss.solder:solder-impl").resolveAs(GenericArchive.class));
-       */ } else {
+       *//* } else {
             ret.addAsLibraries(DependencyResolvers.use(MavenDependencyResolver.class).loadMetadataFromPom("pom.xml")
                     .artifact("org.jboss.solder:solder-impl").artifact("org.scribe:scribe")
                     .artifact("org.apache.commons:commons-lang3").artifact("org.codehaus.jackson:jackson-mapper-asl")
@@ -89,4 +64,4 @@ public class GithubTest {
         System.out.println(profile.getLogin());
         Assert.assertEquals("justinwyer", profile.getLogin());
     }
-}
+}*/

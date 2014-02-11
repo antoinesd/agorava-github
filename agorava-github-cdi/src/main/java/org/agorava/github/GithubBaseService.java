@@ -1,11 +1,11 @@
 /*
- * Copyright 2012 the original author or authors.
+ * Copyright 2014 Agorava
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,15 +15,16 @@
  */
 package org.agorava.github;
 
-import org.agorava.core.api.oauth.OAuthService;
-import org.agorava.core.cdi.AbstractSocialMediaApi;
+
+import org.agorava.api.oauth.OAuthService;
+import org.agorava.spi.ProviderApiService;
 
 import javax.inject.Inject;
 
 /**
  * @author Justin Wyer
  */
-public abstract class GithubBaseService extends AbstractSocialMediaApi {
+public abstract class GithubBaseService extends ProviderApiService {
 
     public static String API_ROOT = "https://api.github.com/";
 
@@ -32,7 +33,7 @@ public abstract class GithubBaseService extends AbstractSocialMediaApi {
     private OAuthService service;
 
     @Override
-    public String buildUri(String url) {
+    public String buildAbsoluteUri(String url) {
         return API_ROOT + url;
     }
 

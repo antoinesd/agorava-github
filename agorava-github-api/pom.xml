@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright 2012 Agorava
+  ~ Copyright 2014 Agorava
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
     <parent>
         <artifactId>agorava-github-parent</artifactId>
         <groupId>org.agorava</groupId>
-        <version>0.5.0-SNAPSHOT</version>
+        <version>0.7.1-SNAPSHOT</version>
     </parent>
     <artifactId>agorava-github-api</artifactId>
     <dependencies>
@@ -28,13 +28,8 @@
             <artifactId>agorava-core-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.scribe</groupId>
-            <artifactId>scribe</artifactId>
-            <scope>provided</scope>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
         </dependency>
-
     </dependencies>
-    <build>
-        <finalName>agorava-github-api</finalName>
-    </build>
 </project>
