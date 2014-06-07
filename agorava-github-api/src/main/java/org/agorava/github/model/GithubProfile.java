@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.agorava.github.model;
 
 import org.agorava.spi.UserProfile;
@@ -28,12 +29,14 @@ public class GithubProfile extends UserProfile {
 
     private final String login;
     private final String name;
+    private final String email;
     private final String avatar_url;
 
-    public GithubProfile(String id, String login, String name, String avatar_url) {
+    public GithubProfile(String id, String login, String name, String email, String avatar_url) {
         super(id);
         this.login = login;
         this.name = name;
+        this.email = email;
         this.avatar_url = avatar_url;
     }
 
@@ -49,6 +52,21 @@ public class GithubProfile extends UserProfile {
     @Override
     public String getFullName() {
         return name;
+    }
+
+    @Override
+    public String getFirstName() {
+        return name;
+    }
+
+    @Override
+    public String getLastName() {
+        return name;
+    }
+
+    @Override
+    public String getEmail() {
+        return email;
     }
 
     @Override

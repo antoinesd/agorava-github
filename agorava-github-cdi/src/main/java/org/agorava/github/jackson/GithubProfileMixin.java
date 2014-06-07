@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.agorava.github.jackson;
 
 
@@ -30,6 +31,7 @@ abstract class GithubProfileMixin {
 
     @JsonCreator
     GithubProfileMixin(@JsonProperty("id") String id, @JsonProperty("login") String login,
-            @JsonProperty("name") String name, @JsonProperty("avatar_url") String avatar_url) {
+            @JsonProperty("name") String name, @JsonProperty("email") String email,
+            @JsonProperty("avatar_url") String avatar_url) {
     }
 }
