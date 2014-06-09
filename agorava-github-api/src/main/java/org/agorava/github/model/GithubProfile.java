@@ -16,6 +16,7 @@
 
 package org.agorava.github.model;
 
+import org.agorava.github.Github;
 import org.agorava.spi.UserProfile;
 
 /**
@@ -33,7 +34,7 @@ public class GithubProfile extends UserProfile {
     private final String avatar_url;
 
     public GithubProfile(String id, String login, String name, String email, String avatar_url) {
-        super(id);
+        super(id, Github.class);
         this.login = login;
         this.name = name;
         this.email = email;
