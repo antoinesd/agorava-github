@@ -51,6 +51,11 @@ public class GithubProfile extends UserProfile {
     }
 
     @Override
+    public String getLoginName() {
+        return login;
+    }
+
+    @Override
     public String getFullName() {
         return name;
     }
